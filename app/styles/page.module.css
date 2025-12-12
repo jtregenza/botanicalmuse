@@ -16,23 +16,46 @@
     min-height: 200svh;
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); */
     /* place-items: center center; */
     gap: 1rem;
 }
 
-.main div {
-    /* background: red; */
-    width: 100%;
-    height: auto;
+.homeGallery {
     display: grid;
-    place-items: center center;
-    text-align: center;
-    border-radius: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+    gap: 1rem;
 }
+
 
 .imageCage {
     position: relative;
-    width:100%;
+    width: 100%;
     height: auto;
+    
+}
+
+.homeImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.postImage {
+    width: 100%;
+    height: auto;
+}
+
+.post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.postInfo {
+    height: min-content;
+    position: sticky;
+    top: 0;
 }

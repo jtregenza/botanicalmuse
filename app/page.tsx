@@ -42,8 +42,7 @@ async function getPosts(): Promise<Post[]> {
 export default async function Home() {
   const posts = await getPosts();
   return (
-    <>
-    <div >
+    <div className={styles.homeGallery}>
         {posts.map((post) => (
           <Link
             key={post.slug}
@@ -51,9 +50,12 @@ export default async function Home() {
           
           >
             {post.frontmatter.thumbnail && (
-              <div className="aspect-video overflow-hidden">
+              <div className={styles.imageCage}>
                 <Image
-                  fill={true}	
+                loading="eager"
+                className={styles.homeImage}
+                width={800}
+                  height={600}
                   src={post.frontmatter.thumbnail}
                   alt={post.frontmatter.title}
                   
@@ -65,22 +67,13 @@ export default async function Home() {
               <h2 className="text-2xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
                 {post.frontmatter.title}
               </h2>
-              
-              <time className="text-sm text-gray-600">
-                {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
             </div>
           </Link>
         ))}
-      </div>
       
       {posts.length === 0 && (
         <p className="text-gray-600 text-center py-12">No posts found.</p>
       )}
-    </>
+    </div>
   );
 }

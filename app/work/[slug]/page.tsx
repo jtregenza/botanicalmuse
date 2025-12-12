@@ -69,39 +69,41 @@ export default async function Post({ params }: PostProps) {
   const { frontmatter, content } = post;
   
   return (
-    <article className="max-w-4xl mx-auto px-4 py-8">
+    <article className={styles.post}>
 
       
 
       {frontmatter.galleryImages && frontmatter.galleryImages.length > 0 && (
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">Gallery</h2>
+        <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {frontmatter.thumbnail && (
                     <div className={styles.imageCage}>
-                    <Image
-                      fill={true}	
+                    <Image	
                       src={frontmatter.thumbnail}
                       alt={frontmatter.title}
-                      className="w-full h-96 object-cover rounded-lg mb-8"
+                      className={styles.postImage}
+                width={800}
+                  height={600}
                     />
                    </div>
       )}
             {frontmatter.galleryImages.map((image, index) => (
+              <div className={styles.imageCage} key={index}>
               <Image
-                key={index}
                 src={image.galimage}
                 alt={image.alt}
-                fill={true}	
-                className="w-full h-64 object-cover rounded-lg"
+                className={styles.postImage}
+                width={800}
+                  height={600}
               />
+              </div>
             ))}
           </div>
         </section>
       )}
 
-      <>
-            <header className="mb-8">
+      <div className={styles.postInfo}>
+        <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
         <time className="text-gray-600">
           {new Date(frontmatter.date).toLocaleDateString('en-US', {
@@ -114,7 +116,7 @@ export default async function Post({ params }: PostProps) {
       <div className="prose prose-lg max-w-none mb-12">
         <MDXRemote source={content} />
       </div>
-      </>
+      </div>
     </article>
   );
 }
