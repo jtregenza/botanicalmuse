@@ -9,6 +9,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Geist", Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr;
+  position: relative;
+  margin: 0;
+  overflow: visible;
 }
 
 h1 {
