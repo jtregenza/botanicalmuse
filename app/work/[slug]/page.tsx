@@ -23,7 +23,7 @@ interface PostProps {
 }
 
 async function getPost(slug: string) {
-  const postsDirectory = path.join(process.cwd(), '_posts/posts');
+  const postsDirectory = path.join(process.cwd(), '/work/posts');
   const filePath = path.join(postsDirectory, `${slug}.mdx`);
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
@@ -35,7 +35,7 @@ async function getPost(slug: string) {
 }
 
 export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), '_posts/posts');
+  const postsDirectory = path.join(process.cwd(), '/work/posts');
   const files = fs.readdirSync(postsDirectory);
   
   return files.map((filename) => ({

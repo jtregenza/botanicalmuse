@@ -17,7 +17,7 @@ interface Post {
 }
 
 async function getPosts(): Promise<Post[]> {
-  const postsDirectory = path.join(process.cwd(), '_posts/posts');
+  const postsDirectory = path.join(process.cwd(), '/work/posts');
   const files = fs.readdirSync(postsDirectory);
   
   const posts = files
