@@ -34,7 +34,7 @@ export default function RootLayout({
           <p>This is the site of an amazing artist</p>
 
         <nav>
-          <Link href="/work">Work</Link>
+          <Link href="/">Work</Link>
           <Link href="/about">About</Link>
         </nav>
         </aside>

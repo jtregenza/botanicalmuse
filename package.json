@@ -14,7 +14,9 @@
     "@next/mdx": "^16.0.10",
     "@types/mdx": "^2.0.13",
     "decap-cms-app": "^3.9.0",
+    "gray-matter": "^4.0.3",
     "next": "16.0.10",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },

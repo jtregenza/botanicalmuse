@@ -16,6 +16,12 @@ body {
   overflow: visible;
 }
 
+@media screen and (max-width: 600px) {
+ body {
+  grid-template-columns: 1fr;
+ }
+}
+
 h1 {
   font-family: "Geist", Arial, Helvetica, sans-serif;
   letter-spacing: -0.03rem;
