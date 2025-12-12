@@ -21,14 +21,14 @@ async function getPosts(): Promise<Post[]> {
   const files = fs.readdirSync(postsDirectory);
   
   const posts = files
-    .filter((filename) => filename.endsWith('.mdx'))
+    .filter((filename) => filename.endsWith('.md'))
     .map((filename) => {
       const filePath = path.join(postsDirectory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContent);
       
       return {
-        slug: filename.replace('.mdx', ''),
+        slug: filename.replace('.md', ''),
         frontmatter: data as PostFrontmatter,
       };
     })
@@ -53,6 +53,7 @@ export default async function Home() {
             {post.frontmatter.thumbnail && (
               <div className="aspect-video overflow-hidden">
                 <Image
+                  fill={true}	
                   src={post.frontmatter.thumbnail}
                   alt={post.frontmatter.title}
                   

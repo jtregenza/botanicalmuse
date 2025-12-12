@@ -6,6 +6,12 @@
     height: min-content;
 }
 
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .main {
     min-height: 200svh;
     padding: 2rem;
@@ -23,4 +29,10 @@
     place-items: center center;
     text-align: center;
     border-radius: 0.5rem;
+}
+
+.imageCage {
+    position: relative;
+    width:100%;
+    height: auto;
 }

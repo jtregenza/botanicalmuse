@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import styles from '@/app/styles/page.module.css'
 
 interface PostFrontmatter {
   title: string;
@@ -77,17 +78,21 @@ export default async function Post({ params }: PostProps) {
           <h2 className="text-2xl font-bold mb-6">Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {frontmatter.thumbnail && (
-        <Image
-          src={frontmatter.thumbnail}
-          alt={frontmatter.title}
-          className="w-full h-96 object-cover rounded-lg mb-8"
-        />
+                    <div className={styles.imageCage}>
+                    <Image
+                      fill={true}	
+                      src={frontmatter.thumbnail}
+                      alt={frontmatter.title}
+                      className="w-full h-96 object-cover rounded-lg mb-8"
+                    />
+                   </div>
       )}
             {frontmatter.galleryImages.map((image, index) => (
               <Image
                 key={index}
                 src={image.galimage}
                 alt={image.alt}
+                fill={true}	
                 className="w-full h-64 object-cover rounded-lg"
               />
             ))}
