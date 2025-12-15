@@ -1,7 +1,7 @@
 ---
 title: Manus
 date: 2025-12-12T16:43:00.000+10:00
-thumbnail: /images/uploads/1689878571836.jpg
+thumbnail: /images/uploads/naber-design-ex.png
 galleryImages:
   - galimage: /images/uploads/frame-3465388.png
     alt: Josh Coffee

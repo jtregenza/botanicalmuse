@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >    
       <aside className={styles.sidebar}>
-          <h1>Georgina Jade Tregenza</h1>
+          <h1>Georgina Tregenza</h1>
           <p>This is the site of an amazing artist</p>
 
         <nav>

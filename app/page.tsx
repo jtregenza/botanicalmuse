@@ -1,9 +1,7 @@
-import Image from "next/image";
-import styles from "./styles/page.module.css"
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Link from 'next/link';
+import MasonryGrid from './components/MasonryGrid';
 
 interface PostFrontmatter {
   title: string;
@@ -41,39 +39,5 @@ async function getPosts(): Promise<Post[]> {
 
 export default async function Home() {
   const posts = await getPosts();
-  return (
-    <div className={styles.homeGallery}>
-        {posts.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/work/${post.slug}`}
-          
-          >
-            {post.frontmatter.thumbnail && (
-              <div className={styles.imageCage}>
-                <Image
-                loading="eager"
-                className={styles.homeImage}
-                width={800}
-                  height={600}
-                  src={post.frontmatter.thumbnail}
-                  alt={post.frontmatter.title}
-                  
-                />
-              </div>
-            )}
-            
-            <div className="p-6">
-              <h2 className="text-2xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
-                {post.frontmatter.title}
-              </h2>
-            </div>
-          </Link>
-        ))}
-      
-      {posts.length === 0 && (
-        <p className="text-gray-600 text-center py-12">No posts found.</p>
-      )}
-    </div>
-  );
+  return <MasonryGrid posts={posts} />;
 }
