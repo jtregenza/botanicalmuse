@@ -105,13 +105,6 @@ export default async function Post({ params }: PostProps) {
       <div className={styles.postInfo}>
         <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-        <time className="text-gray-600">
-          {new Date(frontmatter.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </time>
       </header>
       <div className="prose prose-lg max-w-none mb-12">
         <MDXRemote source={content} />
